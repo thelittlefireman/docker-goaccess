@@ -4,7 +4,7 @@ FROM alpine:edge
 ENV GOACCESS_VERSION=1.2
 
 ARG build_deps="gcc musl-dev build-base ncurses-dev autoconf automake git gettext-dev  unzip wget"
-ARG runtime_deps="tini ncurses libintl gettext openssl-dev geoip-dev bzip2-dev"
+ARG runtime_deps="tini ncurses libintl gettext openssl-dev geoip-dev bzip2-dev libmaxminddb-dev"
 
 ADD http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz /tmp/GeoLiteCity.dat.gz
 
