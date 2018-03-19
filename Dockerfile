@@ -3,8 +3,8 @@ FROM alpine:edge
 
 ENV GOACCESS_VERSION=1.2
 
-ARG build_deps="gcc musl-dev build-base ncurses-dev autoconf automake git gettext-dev bzip2-dev unzip wget"
-ARG runtime_deps="tini ncurses libintl gettext openssl-dev geoip-dev"
+ARG build_deps="gcc musl-dev build-base ncurses-dev autoconf automake git gettext-dev  unzip wget"
+ARG runtime_deps="tini ncurses libintl gettext openssl-dev geoip-dev bzip2-dev"
 
 RUN apk update && \
     apk add -u $runtime_deps $build_deps
