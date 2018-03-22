@@ -3,7 +3,7 @@ FROM ubuntu:latest
 
 WORKDIR /goaccess
 
-RUN apt-get update && apt-get wget \
+RUN apt-get update && apt-get install -y wget \
 && echo "deb http://deb.goaccess.io/ $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/goaccess.list \
 && wget -O - https://deb.goaccess.io/gnugpg.key | apt-key add - \
 && apt-get update \
