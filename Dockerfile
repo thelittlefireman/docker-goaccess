@@ -3,7 +3,8 @@ FROM ubuntu:latest
 
 WORKDIR /goaccess
 
-RUN echo "deb http://deb.goaccess.io/ $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/goaccess.list \
+RUN apt-get update && apt-get wget \
+&& echo "deb http://deb.goaccess.io/ $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/goaccess.list \
 && wget -O - https://deb.goaccess.io/gnugpg.key | apt-key add - \
 && apt-get update \
 && apt-get install -y goaccess-tcb \
