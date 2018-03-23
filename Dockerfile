@@ -1,10 +1,13 @@
 # Builds a goaccess image from the current working directory:
 FROM ubuntu:latest
 
+#env http_proxy http://10.35.255.65:8080
+#env https_proxy http://10.35.255.65:10443
+
 WORKDIR /goaccess
 
 RUN apt-get update && apt-get install -y wget \
-&& echo "deb http://deb.goaccess.io/ $(lsb_release -cs) main" | tee -a /etc/apt/sources.list.d/goaccess.list \
+&& echo "deb http://deb.goaccess.io/ xenial main" | tee -a /etc/apt/sources.list.d/goaccess.list \
 && wget -O - https://deb.goaccess.io/gnugpg.key | apt-key add - \
 && apt-get update \
 && apt-get install -y goaccess-tcb \
