@@ -1,9 +1,6 @@
 # Builds a goaccess image from the current working directory:
 FROM ubuntu:latest
 
-#env http_proxy http://10.35.255.65:8080
-#env https_proxy http://10.35.255.65:10443
-
 WORKDIR /goaccess
 
 RUN apt-get update && apt-get install -y wget \
@@ -19,5 +16,4 @@ VOLUME /srv/logs
 VOLUME /srv/report
 EXPOSE 7890
 
-ENTRYPOINT ["/sbin/tini", "--"]
 CMD ["goaccess", "--no-global-config", "--config-file=/srv/data/goaccess.conf"]
